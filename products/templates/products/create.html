@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Please enter your product details</h1>
+
+{% if error %}
+<h1>Please note that: {{ error }} </h1>
+<br />
+<br />
+{% endif %}
+
+<form method="POST", action="{% url 'create' %}" enctype="multipart/form-data">
+{% csrf_token %}
+<br />
+<br />
+
+<b>Title</b>:
+<br />
+<input type="text" name="title">
+<br />
+<br />
+<b>Body:</b>
+<br />
+<input type="textbox" name="body" style=" min-width:10px; max-width:100%;min-height:10px;height:100%;width:50%;">
+<br />
+<br />
+<b>URL:</b>
+<br />
+<input type="url" name="url">
+<br />
+<br />
+<b> Image: </b>
+<br />
+<input type="file" name="image">
+<br />
+<br />
+<b> Icon:</b>
+<br />
+<input type="file" name="icon">
+<br />
+<br />
+
+<input class="btn btn-primary" type="submit" name="addproduct" Value="Add Product">
+
+</form>
+{%  endblock %}
